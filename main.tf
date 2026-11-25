@@ -17,7 +17,13 @@ resource "aws_cloudwatch_dashboard" "monitoring" {
           period = 300
 
           metrics = [
-            ["AWS/EC2", "CPUUtilization"]
+            [
+              {
+                expression = "SEARCH('{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\"', 'Average', 300)"
+                id         = "e1"
+                label      = "EC2 CPU Utilization"
+              }
+            ]
           ]
         }
       },
@@ -35,8 +41,20 @@ resource "aws_cloudwatch_dashboard" "monitoring" {
           period = 300
 
           metrics = [
-            ["AWS/EC2", "NetworkIn"],
-            ["AWS/EC2", "NetworkOut"]
+            [
+              {
+                expression = "SEARCH('{AWS/EC2,InstanceId} MetricName=\"NetworkIn\"', 'Average', 300)"
+                id         = "e2"
+                label      = "Network In"
+              }
+            ],
+            [
+              {
+                expression = "SEARCH('{AWS/EC2,InstanceId} MetricName=\"NetworkOut\"', 'Average', 300)"
+                id         = "e3"
+                label      = "Network Out"
+              }
+            ]
           ]
         }
       }

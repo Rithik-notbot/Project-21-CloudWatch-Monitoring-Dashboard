@@ -27,7 +27,13 @@ Create an AWS CloudWatch dashboard to monitor EC2 performance metrics from a cen
 - `.gitignore` — Excludes Terraform-generated files.
 
 ## Deployment Status
-Terraform configuration is being prepared and validated. AWS deployment and dashboard screenshots are pending company approval.
+
+- Terraform CloudWatch dashboard configuration prepared.
+- EC2 CPU and Network metric widgets configured using CloudWatch SEARCH expressions.
+- Terraform formatting completed.
+- Terraform validation successful.
+- AWS deployment and live dashboard verification pending account access and approval.
+- CloudWatch dashboard screenshot pending approved deployment.
 
 ## Expected Deliverables
 - Terraform configuration uploaded to GitHub.
